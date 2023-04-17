@@ -9,6 +9,13 @@ When running the Inp_SimpleRaster.txt, Inp_AMBenchMultilayer.txt, and Inp_TwoLin
 # ExaCA substrate example files
 The substrate data files provided within the https://github.com/LLNL/ExaCA repository consist of various representations of 10,000 random cubic grain orientations (see the README file provided in the examples subdirecory of the ExaCA repository for more details) and are sufficient for running the example problems provided. However, simulations containing more than 10,000 grains using said substrate files will reuse orientations; to mitigate the effect of having multiple grains share a single orientation, the supplementary substrate files in this repository contain 1,000,000 random cubic orientations. Running ExaCA with this larger set of grain orientations yields a negligible increase in runtime (and for simulations tested to date, a negligible change in predicted texture), but may improve ExaConstit property prediction for microstructures containing large numbers of grains with the reduced probability of multiple grains being assigned the same orientation.
 
+# MTEX example input files
+Running the directional solidification example problem and analysis executable using https://github.com/LLNL/ExaCA creates three MTEX input files that should resemble those in the `MTEX_Input` directory. These files can be analyzed using Matlab and the MTEX toolbox (https://mtex-toolbox.github.io/) along with the appropriate scripts in the ExaCA repository's `utilities/MTEX` directory to analyze the texture of the example regions (see `analysis/README.md` in the ExaCA repository for more details).
+
+* `TestProblemDirS_XY198_PoleFigureData.txt` consists of the Euler angles and frequencies for the grains in the XY cross-section at Z = 198 (just below the top surface of the directional solidification problem). This can be used to plot pole figures and inverse pole figures using `utilities/MTEX/PlotPoleFigure.m` in the ExaCA repository
+* `TestProblemDirS_XY198_IPFCrossSectionData.txt` consists of the Euler angles associated with each point in the XY cross-section at Z = 198 (just below the top surface of the directional solidification problem)
+* `TestProblemDirS_XZ100_IPFCrossSectionData.txt` consists of the Euler angles associated with each point in the XZ cross-section at Y = 100 (the center plane of the directional solidification problem, slicing parallel to the thermal gradient direction)
+
 # Release
 
 LLNL-CODE-821827
